@@ -1,0 +1,8 @@
+# Word临时文件
+~$*.docx
+~$*.doc
+*.tmp
+
+# 系统文件
+desktop.ini
+Thumbs.db
