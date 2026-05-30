@@ -1,6 +1,6 @@
 ---
 name: hexie-check
-description: Use when checking/auditing the quality of a literature review for Chinese economics or management papers, when the user asks to "check the literature review", "run a quality check", "audit the writing", or after hexie skill has finished revising
+description: Use when checking/auditing the quality of a literature review for Chinese economics or management papers, when the user asks to "check the literature review", "run a quality check", "audit the writing", or after hexie-writer skill has finished revising
 plan_mode: true
 thinking: maximum
 ---

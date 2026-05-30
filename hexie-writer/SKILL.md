@@ -1,5 +1,5 @@
 ---
-name: hexie
+name: hexie-writer
 description: Use when the user needs to write, revise, select papers for, or quality-check a literature review for Chinese economics or management papers. Triggers include: writing a new lit review, rewriting an existing one, "don't just list papers", "use academic essay style", selecting papers, checking paper relationships, finding suitable literature, or any request to improve literature review quality. This skill covers the full pipeline: paper selection, relationship diagnosis, template-driven writing, and quality auditing.
 plan_mode: true
 thinking: maximum
