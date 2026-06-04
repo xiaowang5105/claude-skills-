@@ -33,7 +33,7 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 必须按需读取：
 
 - `resource-index.md`：确认 `tier-a-complete-structure-templates`、`tier-b-skeleton-structure-templates`、`tier-c-style-corpus` 的用途和事实边界。
-- `material-tier-index.md`：按 A/B/C 档选择素材。目录只表示素材入口，不等于等级；具体等级以该索引为准。
+- `material-tier-index.md`：按 A/B/C 提取质量选择素材。目录只表示素材入口，不等于等级；具体等级以该索引为准。
 - `workflow-rules.md`：需要适用范围、事实来源、组织方式、前置输出、循环阻塞、选文献规则或 check 规则时读取对应章节。
 
 不要整篇读取大文件。先根据主题、关键词、组织方式搜索，再截取 1-3 段相近语料作为风格参考。A/B/C 素材目录都不能作为事实依据。
@@ -43,7 +43,7 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 1. 定位任务属于引言、文献综述、理论铺垫、现实背景、研究缺口、贡献段，还是多个部分组成的开篇论证链；适用边界见 `workflow-rules.md`。
 2. 前置检查：区分背景事实、文献事实、作者论断；诊断现实背景 -> 研究问题 -> 文献群落 -> 缺口 -> 本文贡献。
 3. 只有当文献选择、组织方案或事实取舍会显著改变论文方向时，才按 `workflow-rules.md` 的“Writer 前置输出”给出方案并等待用户选择；若只是局部改写或用户目标明确，可直接选择最合适方案并简短说明。
-4. 按 `material-tier-index.md` 选择素材：A 档学习完整结构；B 档删除或忽略作者、年份、政策、数据、案例和具体事实后学习判断链与句式；C 档只在去 AI 腔或找词感时局部搜索。
+4. 按 `material-tier-index.md` 选择素材：A 档高质量摘录学习完整结构；B 档可用摘录删除或忽略作者、年份、政策、数据、案例和具体事实后学习判断链与句式；C 档原始/低质量材料只在去 AI 腔或找词感时局部搜索。
 5. 拆解选中范例的句层功能、证据位置、关联词和节奏，再逐句改写；每句先有学术判断，再用背景事实或文献事实作证据。
 6. 核验事实：背景事实核对政策、年份、事件、行业数据、企业案例、国际形势和制度背景；文献事实核对发现、机制、结论方向和作者归属；作者论断需由材料自然推出。
 7. 立即进入 `hexie-check` 完整工作流，按 `hexie-check` 的检查规则生成报告。

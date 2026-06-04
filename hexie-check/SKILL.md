@@ -35,7 +35,7 @@ description: Audit Chinese economics and management paper openings for structure
 必须按需读取：
 
 - `resource-index.md`：确认 `tier-a-complete-structure-templates`、`tier-b-skeleton-structure-templates`、`tier-c-style-corpus` 的用途和事实边界。
-- `material-tier-index.md`：按 A/B/C 档判断素材权重。目录只表示素材入口，不等于等级；具体等级以该索引为准。B/C 档不得作为事实通过的依据。
+- `material-tier-index.md`：按 A/B/C 提取质量判断素材权重。目录只表示素材入口，不等于等级；具体等级以该索引为准。B/C 档不得作为事实通过的依据。
 - `workflow-rules.md`：需要适用范围、事实来源、13 条检查清单、现实背景核验、文献引用准确性、报告格式或判定规则时读取对应章节。
 
 不要整篇读取大文件。检查 AI 腔或用词时，先搜索 `tier-c-style-corpus` 或 `tier-c-style-corpus/raw-ocr`，再截取 1-3 段相近语料作风格参照。语料只能帮助判断词感，不能证明事实。
@@ -46,7 +46,7 @@ description: Audit Chinese economics and management paper openings for structure
 2. 判断材料状态：是否有用户提供的原文、PDF、MD、参考文献材料、政策/数据来源或可靠链接。若只有待检查文本，进入“材料不足模式”。
 3. 区分背景事实、文献事实、作者论断，并先标出哪些内容可核验、哪些只能待验证。
 4. 按 `workflow-rules.md` 执行 13 条结构/语言/忠实检查；没有 A 档模板不影响检查，不得因缺少模板放宽或阻断检查。
-5. 按需读取 `material-tier-index.md` 和 A/B/C 素材作参照：A 可参照完整结构，B 只参照去事实后的骨架，C 只参照词感；素材参照不得决定通过。
+5. 按需读取 `material-tier-index.md` 和 A/B/C 素材作参照：A 是高质量摘录，可参照完整结构；B 是可用摘录，只参照去事实后的骨架；C 是原始/低质量材料，只参照词感；素材参照不得决定通过。
 6. 执行素材误用检查：是否把 B 档作者、年份、政策、数据、案例、具体结论当事实依据；是否把 C 档 raw-ocr 当结构模板；是否模仿空括号、缺年份、残缺英文、错断句或页眉页脚。
 7. 逐条核对现实背景事实：政策、年份、事件、数据、行业事实、企业案例、制度背景或国际形势。
 8. 逐条核对文献引用准确性：方向一致、内容一致、归属正确。
