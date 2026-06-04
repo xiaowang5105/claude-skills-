@@ -96,23 +96,23 @@ hexie-shared-resource-library/
 ├── resource-index.md
 ├── material-tier-index.md
 ├── workflow-rules.md
-├── structure-template-library/
-├── limited-reference-templates/
-└── low-trust-style-corpus/
+├── tier-a-complete-structure-templates/
+├── tier-b-skeleton-structure-templates/
+└── tier-c-style-corpus/
 ```
 
 其中：
 
 - `resource-index.md` 说明资源库的用途和事实边界。
-- `material-tier-index.md` 规定素材 A/B/C 分层。
+- `material-tier-index.md` 规定“写法类型 × 素材质量”的二维索引。
 - `workflow-rules.md` 保存适用范围、事实来源优先级、八种组织方式、writer-check 循环、检查权重、13 条检查清单和报告格式。
-- `structure-template-library/` 是结构模板入口。
-- `limited-reference-templates/` 是局部参考模板入口。
-- `low-trust-style-corpus/` 是低可信风格语料入口，只用于词感和去 AI 腔。
+- `tier-a-complete-structure-templates/` 是 A 档完整结构模板入口；当前可为空，只放人工筛出的干净段落。
+- `tier-b-skeleton-structure-templates/` 是 B 档去事实后结构骨架入口；当前 01/02/03/04/05/06/08 主要在这里。
+- `tier-c-style-corpus/` 是 C 档词感语料入口；当前 07、历史大素材和 MinerU/OCR 原始材料在这里。
 
 ## Material Tiers
 
-素材分层只决定“AI 怎么安全使用素材”，不代表材料本身学术价值高低。
+素材库采用二维结构：8 种写法是横向分类，A/B/C 是纵向质量等级。每一种写法理论上都可以有 A、B、C 三档素材；A/B/C 不代表写法本身好坏，只决定“AI 怎么安全使用素材”。
 
 | Tier | Name | Can be used for | Cannot be used for |
 |------|------|-----------------|--------------------|

@@ -30,11 +30,11 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 
 必须按需读取：
 
-- `resource-index.md`：确认 `structure-template-library`、`limited-reference-templates`、`low-trust-style-corpus` 的用途和事实边界。
+- `resource-index.md`：确认 `tier-a-complete-structure-templates`、`tier-b-skeleton-structure-templates`、`tier-c-style-corpus` 的用途和事实边界。
 - `material-tier-index.md`：按 A/B/C 档选择素材。目录只表示素材入口，不等于等级；具体等级以该索引为准。
 - `workflow-rules.md`：需要适用范围、事实来源、组织方式、前置输出、循环阻塞、选文献规则或 check 规则时读取对应章节。
 
-不要整篇读取大文件。先根据主题、关键词、组织方式搜索，再截取 1-3 段相近语料作为风格参考。`structure-template-library`、`limited-reference-templates`、`low-trust-style-corpus` 都不能作为事实依据。
+不要整篇读取大文件。先根据主题、关键词、组织方式搜索，再截取 1-3 段相近语料作为风格参考。A/B/C 素材目录都不能作为事实依据。
 
 ## 工作流程
 
@@ -61,7 +61,7 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 - 背景事实包括政策、年份、事件、行业数据、企业案例、国际形势和制度背景。
 - 文献事实包括论文发现、机制、结论方向、适用对象和作者归属。
 - 作者论断包括问题意识、缺口判断、贡献定位；这些论断必须由前文材料自然推出。
-- `low-trust-style-corpus` 只能给语言气口，不能替代事实核验。
+- `tier-c-style-corpus` 只能给语言气口，不能替代事实核验。
 - 已提供 PDF/MD/原文时优先本地核验；新增文献或新增背景事实才进入可靠检索或用户补充流程。
 
 ## 写作底线
@@ -70,7 +70,7 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 - 背景克制，现实背景只服务于研究问题。
 - 引用简洁，正文只保留与论证有关的发现。
 - 关系诚实，不虚构递进、不假造文献对话、不把并列文献写成因果链。
-- 语言自然，避免空泛 AI 腔；从 `low-trust-style-corpus` 学气口，不学 OCR 错误。
+- 语言自然，避免空泛 AI 腔；从 `tier-c-style-corpus` 学气口，不学 OCR 错误。
 
 ## 循环日志
 
