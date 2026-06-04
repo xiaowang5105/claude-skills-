@@ -9,6 +9,8 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 
 `hexie-writer` 是入口 skill，负责写作、改写、选文献、整合现实背景、吸收 `hexie-check` 报告并产出终稿。完成一版后必须立即进入 `hexie-check` 工作流；不通过时只按修正清单定点修改，再次进入 check 工作流，直到通过或遇到事实阻塞。
 
+循环控制权在 writer：writer 每轮改写后必须重新进入 `hexie-check`；`hexie-check` 只负责单轮检查，不负责自我循环。
+
 铁律：不得无中生有。文献事实和现实背景事实必须来自用户材料、原文、PDF、MD、参考文献材料，或可实际检索验证的可靠来源。无法确认时标记“待验证”并暂停，不得假装通过。
 
 ## 适用边界
@@ -75,6 +77,8 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 ## 循环日志
 
 每轮 writer-check 循环输出简短日志，格式见 `workflow-rules.md`。日志只记录 check 结论、不通过项、writer 定点修改和下一步，不重复粘贴已通过全文。
+
+第二轮及之后的检查仍由 `hexie-check` 执行，但由 `hexie-writer` 负责再次进入检查工作流。
 
 正常终点只有一个：`hexie-check` 全部通过。遇到事实无法核验、材料缺失、联网不可用或多次修正后仍有事实冲突时，暂停并列出阻塞事实、需要核对的问题、已有依据和建议补充材料。
 

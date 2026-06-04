@@ -87,6 +87,37 @@ Hexie 不适合套用到：
 - 任一检查项不通过，判定“不通过”。
 - 任一现实背景事实或引用为“待验证”，判定“待验证”，并暂停 writer 的终稿输出。
 
+## Writer-Check Loop
+
+Hexie 的自动闭环由 `hexie-writer` 控制，不由 `hexie-check` 自己循环。
+
+```text
+用户调用 hexie-writer
+        ↓
+writer 前置检查：背景事实 / 文献事实 / 作者论断
+        ↓
+writer 第一次写作或改写
+        ↓
+writer 进入 hexie-check
+        ↓
+check 输出单轮报告：通过 / 不通过 / 待验证 + 修正清单
+        ↓
+writer 按修正清单定点修改
+        ↓
+writer 再次进入 hexie-check
+        ↓
+重复，直到 check 全部通过或事实阻塞
+```
+
+`hexie-check` 单独调用时只输出一次检查报告；它不改文，也不自动发起第二轮。第二轮及之后的检查仍由 `hexie-check` 执行，但“再次检查”这个动作由 `hexie-writer` 发起。
+
+因此：
+
+```text
+测 hexie-check = 测单轮审稿
+测 hexie-writer = 测完整写-查-改-再查闭环
+```
+
 ## `hexie-shared-resource-library`
 
 `hexie-shared-resource-library` 是 writer/check 的共享资源库，不是入口 skill。

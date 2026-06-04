@@ -9,6 +9,8 @@ description: Audit Chinese economics and management paper openings for structure
 
 `hexie-check` 只检查，不改文，不生成终稿文件，不生成 `.docx`。它输出通过/不通过/待验证、违规详情、现实背景核验、引用准确性表和修正清单。`hexie-writer` 读取修正清单后定点修改，并再次调用本检查流程。
 
+单独调用 `hexie-check` 时，只输出一次检查报告；只有被 `hexie-writer` 调用时，它才作为 writer-check 循环中的一轮。第二轮及之后的检查仍由 `hexie-check` 执行，但循环控制权属于 `hexie-writer`。
+
 硬规则：任何现实背景事实或文献事实无法验证、方向错误、内容夸大或归属错误，判定不通过或待验证。不得用 A/B/C 素材目录替代事实依据。
 
 定位：`hexie-check` 不是模板相似度检查，而是审稿式质量检查。A/B/C 素材只提供结构、骨架或词感参照，不决定是否通过；最终判定只看结构、语言、现实背景事实和文献引用准确性。
