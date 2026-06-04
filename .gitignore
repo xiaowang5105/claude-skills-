@@ -1,8 +1,16 @@
-# Word临时文件
+﻿# Local agent config
+.claude/
+.agents/
+.codex/
+
+# Excluded skills
+hxpdf/
+
+# Word temporary files
 ~$*.docx
 ~$*.doc
 *.tmp
 
-# 系统文件
+# System files
 desktop.ini
 Thumbs.db
