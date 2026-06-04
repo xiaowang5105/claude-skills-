@@ -1,13 +1,13 @@
 ﻿---
 name: hexie-writer
-description: Write, revise, restructure, or select arguments and literature for Chinese economics and management paper openings. Use for 引言, 导论, 开篇论证, 现实背景, 研究背景, 理论铺垫, 文献综述, 文献回顾, 研究缺口, 边际贡献, 贡献段, 改得像中文经管顶刊, 不要罗列文献, 检查文献关系, 选文献, 查 AI 腔, 检查引用准确性, or the full write-check-revise loop with hexie-check.
+description: Write, revise, restructure, or develop Chinese economics and management paper openings. Use for 引言, 导论, 开篇论证, 现实背景, 研究背景, 理论铺垫, 文献综述, 文献回顾, 研究问题, 研究缺口, 边际贡献, 贡献段, 改得像中文经管论文, 重组开篇逻辑, 避免文献罗列, 选文献, or the full write-check-revise loop with hexie-check.
 ---
 
 # 中文经管论文开篇论证写作
 
 ## 角色
 
-`hexie-writer` 是入口 skill，负责写作、改写、选文献、整合现实背景、吸收 `hexie-check` 报告并产出终稿。写完一版后必须自动运行 `hexie-check`；不通过时只按修正清单定点修改，再次运行 check，直到通过或遇到事实阻塞。
+`hexie-writer` 是入口 skill，负责写作、改写、选文献、整合现实背景、吸收 `hexie-check` 报告并产出终稿。完成一版后必须立即进入 `hexie-check` 工作流；不通过时只按修正清单定点修改，再次进入 check 工作流，直到通过或遇到事实阻塞。
 
 铁律：不得无中生有。文献事实和现实背景事实必须来自用户材料、原文、PDF、MD、参考文献材料，或可实际检索验证的可靠来源。无法确认时标记“待验证”并暂停，不得假装通过。
 
@@ -31,7 +31,7 @@ description: Write, revise, restructure, or select arguments and literature for 
 必须按需读取：
 
 - `resource-index.md`：确认 `structure-template-library`、`limited-reference-templates`、`low-trust-style-corpus` 的用途和事实边界。
-- `material-tier-index.md`：按 A/B/C 档选择素材；A 档用 `structure-template-library`，B 档用 `limited-reference-templates` 局部参考，C 档只用于词感。
+- `material-tier-index.md`：按 A/B/C 档选择素材。目录只表示素材入口，不等于等级；具体等级以该索引为准。
 - `workflow-rules.md`：需要适用范围、事实来源、组织方式、前置输出、循环阻塞、选文献规则或 check 规则时读取对应章节。
 
 不要整篇读取大文件。先根据主题、关键词、组织方式搜索，再截取 1-3 段相近语料作为风格参考。`structure-template-library`、`limited-reference-templates`、`low-trust-style-corpus` 都不能作为事实依据。
@@ -40,14 +40,14 @@ description: Write, revise, restructure, or select arguments and literature for 
 
 1. 定位任务属于引言、文献综述、理论铺垫、现实背景、研究缺口、贡献段，还是多个部分组成的开篇论证链；适用边界见 `workflow-rules.md`。
 2. 前置检查：区分背景事实、文献事实、作者论断；诊断现实背景 -> 研究问题 -> 文献群落 -> 缺口 -> 本文贡献。
-3. 若存在多个合理组织方案，按 `workflow-rules.md` 的“Writer 前置输出”给出 3 个方案并等待用户选择；用户确认前不要进入改写。
-4. 按 `material-tier-index.md` 选择模板：结构写作用 A 档优先；B 档只读 `limited-reference-templates` 中的匹配小段；C 档只在去 AI 腔或找词感时局部搜索。
+3. 只有当文献选择、组织方案或事实取舍会显著改变论文方向时，才按 `workflow-rules.md` 的“Writer 前置输出”给出方案并等待用户选择；若只是局部改写或用户目标明确，可直接选择最合适方案并简短说明。
+4. 按 `material-tier-index.md` 选择素材：A 档学习完整结构；B 档删除或忽略作者、年份、政策、数据、案例和具体事实后学习判断链与句式；C 档只在去 AI 腔或找词感时局部搜索。
 5. 拆解选中范例的句层功能、证据位置、关联词和节奏，再逐句改写；每句先有学术判断，再用背景事实或文献事实作证据。
 6. 核验事实：背景事实核对政策、年份、事件、行业数据、企业案例、国际形势和制度背景；文献事实核对发现、机制、结论方向和作者归属；作者论断需由材料自然推出。
-7. 自动运行 `hexie-check` 完整流程。
+7. 立即进入 `hexie-check` 完整工作流，按 `hexie-check` 的检查规则生成报告。
 8. 若 check 不通过，读取修正清单，按“致命 -> 重要 -> 建议”处理，只修改被标出的违规句、错引处、背景事实风险或逻辑断点；其他已通过内容不动。
-9. 再次运行 `hexie-check`。语言和结构问题继续循环到通过；事实问题、资料缺失、引用或背景无法验证时暂停并列阻塞项。
-10. check 全部通过后，保存为 `原文件名_hexie修改.md`。不自动生成 `.docx`，除非用户另行要求。
+9. 再次进入 `hexie-check` 工作流。语言和结构问题继续循环到通过；事实问题、资料缺失、引用或背景无法验证时暂停并列阻塞项。
+10. check 全部通过后，若用户提供了文件路径且当前环境允许写入，保存为 `原文件名_hexie修改.md`；若用户只粘贴文本，则输出通过后的终稿文本。不自动生成 `.docx`，除非用户另行要求。
 
 ## 前置检查最低要求
 
@@ -80,4 +80,4 @@ description: Write, revise, restructure, or select arguments and literature for 
 
 ## 输出
 
-check 通过前，不输出终稿文件。check 通过后，由 writer 保存 `原文件名_hexie修改.md`；除非用户另行要求，不生成 `.docx`。
+check 通过前，不输出终稿文件。check 通过后，若用户提供了文件路径且当前环境允许写入，由 writer 保存 `原文件名_hexie修改.md`；若用户只粘贴文本，则输出通过后的终稿文本。除非用户另行要求，不生成 `.docx`。

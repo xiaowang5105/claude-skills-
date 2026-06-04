@@ -31,7 +31,7 @@ description: Audit Chinese economics and management paper openings for structure
 必须按需读取：
 
 - `resource-index.md`：确认 `structure-template-library`、`limited-reference-templates`、`low-trust-style-corpus` 的用途和事实边界。
-- `material-tier-index.md`：按 A/B/C 档判断素材权重；B 档只用 `limited-reference-templates` 局部参考，不得把 B/C 档当成结构通过或事实通过的充分依据。
+- `material-tier-index.md`：按 A/B/C 档判断素材权重。目录只表示素材入口，不等于等级；具体等级以该索引为准。B/C 档不得作为事实通过的依据。
 - `workflow-rules.md`：需要适用范围、事实来源、13 条检查清单、现实背景核验、文献引用准确性、报告格式或判定规则时读取对应章节。
 
 不要整篇读取大文件。检查 AI 腔或用词时，先搜索 `low-trust-style-corpus` 或 `low-trust-style-corpus/raw-ocr`，再截取 1-3 段相近语料作风格参照。语料只能帮助判断词感，不能证明事实。
@@ -41,7 +41,7 @@ description: Audit Chinese economics and management paper openings for structure
 1. 定位被检查文本属于引言、文献综述、理论铺垫、现实背景、研究缺口、贡献段，还是多个部分组成的开篇论证链；适用边界见 `workflow-rules.md`。
 2. 区分背景事实、文献事实、作者论断。
 3. 识别组织方式：主题线分组、概念论证块、缺口驱动型、机制推导型、对比型、政策脉络型、时间演进型或概念辨析型。
-4. 从 `structure-template-library` 读取对应组织方式文件，比较问题链、段落组织、句层节奏、证据分布和收束方式。
+4. 按 `material-tier-index.md` 查找对应组织方式的素材：若为 A，比较完整结构；若为 B，删除或忽略作者、年份、政策、数据、案例和具体事实后比较判断链与句式；若为 C，只作词感参照，不用于结构通过判定。
 5. 必要时搜索 `low-trust-style-corpus` 或 `low-trust-style-corpus/raw-ocr`，只取 1-3 段检查 AI 腔、用词和中文经管论文气口。
 6. 按 `workflow-rules.md` 执行 13 条结构/语言/忠实检查。
 7. 逐条核对现实背景事实：政策、年份、事件、数据、行业事实、企业案例、制度背景或国际形势。
