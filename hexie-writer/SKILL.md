@@ -68,6 +68,7 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 
 ## 写作底线
 
+- 默认篇幅：用户未规定字数时，整段/整篇开篇写作或改写的正文默认不少于 800 字；用户明确要求只改局部句子、标题、短句或压缩文本时除外。
 - 判断先行，避免作者名、政策名或材料名堆在句首。
 - 背景克制，现实背景只服务于研究问题。
 - 引用简洁，正文只保留与论证有关的发现。
@@ -84,4 +85,4 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 
 ## 输出
 
-check 通过前，不输出终稿文件。check 通过后，若用户提供了文件路径且当前环境允许写入，由 writer 保存 `原文件名_hexie修改.md`；若用户只粘贴文本，则输出通过后的终稿文本。除非用户另行要求，不生成 `.docx`。
+check 通过前，不输出终稿文件。check 通过后，若用户提供了文件路径且当前环境允许写入，由 writer 保存 `原文件名_hexie修改.md`；若用户只粘贴文本，则输出通过后的终稿文本。用户未规定字数时，整段/整篇开篇正文默认不少于 800 字；用户明确要求局部修改或压缩时按用户要求执行。除非用户另行要求，不生成 `.docx`。
