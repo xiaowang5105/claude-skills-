@@ -26,7 +26,11 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 2. `~/.agents/skills/hexie-shared-resource-library/`
 3. `~/.claude/skills/hexie-shared-resource-library/`
 
-按需读取 `material-tier-index.md`（A/B/C 分层）、`workflow-rules.md`（组织方式、前置输出、选文献规则）。不整篇读大文件。A/B/C 素材目录不作为事实依据。
+按需读取 `index.md`（A/B 分层）、`how-to-use.md`（组织方式、前置输出、选文献规则）。不整篇读大文件。素材目录不作为事实依据。
+
+两层分工：
+- **A 档（句子卡片）**：按技法分类的句子/句对，学词感、节奏、收束力。用于第三轮。
+- **B 档（段落结构语料）**：按论证类型分类的判断链 + 原始全文，学段落推进逻辑。用于第二轮。
 
 ## 工作流程
 
@@ -40,9 +44,11 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 
 ### 阶段二：写作
 
-#### 读范例（动笔前）
+#### 读范例
 
-读取匹配的 A/B 档范例，提取三项特征用于当前写作：长短句分布（最长句和最短句的字数及位置）、收束方式（最后一句的字数和功能）、关联词位置（句首/句中/标点后）。写时不照搬范例内容，只复用节奏结构。
+**第二轮动笔前，读 B 档骨架。** 按论证类型取 3 个匹配骨架，看判断链推进顺序。需要看原文怎么落笔时翻同目录下的全文。关掉后用自己材料搭框架。
+
+**第三轮逐句修时，用 A 档卡片一句一句查。** 写一段，翻对应技法的卡片：这句收不住——找收束力卡看短句怎么切；两句落差不够——找长短落差卡看搭配节奏；转折生硬——找关联词位置卡看怎么藏关联词。不是读一篇，是每写一句、每发现一个问题，就拿一张卡对照。
 
 #### 正文写作
 
@@ -51,7 +57,7 @@ description: Write, revise, restructure, or develop Chinese economics and manage
 - **引用简洁。** 括号里只写作者和年份。正文只写与论证有关的发现。
 - **背景克制。** 现实背景只服务于研究问题，不写新闻综述或政策罗列。
 - **关系诚实。** 不虚构递进、不假造文献对话、不把并列文献写成因果链。
-- **语言自然。** 避免 AI 腔；从 C 档语料学气口，不学 OCR 错误。
+- **语言自然。** 避免 AI 腔；从 A 档句子卡片学气口，不学 B 档原始论文中的 OCR 错误。
 
 ### 阶段三：check 循环（三轮顺序）
 
