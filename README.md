@@ -12,17 +12,19 @@ Hexie Skills 是一组用于中文经济学、管理学论文**开篇论证**的
 
 ## Published Skills
 
-本仓库发布三个目录：
+本仓库发布四个目录：
 
 ```text
 hexie-writer/
 hexie-check/
 hexie-shared-resource-library/
+reference-verifier/
 ```
 
 - `hexie-writer`：写作入口，负责写作、改写、选文献、整合现实背景、吸收检查报告并产出终稿。
 - `hexie-check`：检查入口，只输出质量检查报告，不直接改文。
 - `hexie-shared-resource-library`：共享资源库，保存句子卡片、段落结构语料和 writer/check 共用规则。
+- `reference-verifier`：引用核验入口，负责联网确认文献存在、元数据、摘要方向和正文引用是否过度概括。
 
 本仓库不包含 `hxpdf`。
 
@@ -39,7 +41,7 @@ hexie-shared-resource-library/
 对应到资源和检查流程：
 
 - 第一轮看事实：现实背景和文献事实必须能回到原文、PDF、MD、用户材料或可靠来源。
-- 第二轮看段落：用 B 档段落结构语料辅助判断论证链、文献关系、缺口和收束。
+- 第二轮看段落：用 B 档段落结构语料辅助判断论证链、文献关系、缺口、收束，以及正文是否仍是“某某发现/某某指出”的作者清单。
 - 第三轮看句子：用 A 档句子卡片辅助处理词感、节奏、收束力、关联词位置和 AI 腔。
 
 因此，A/B 不是论文质量评价，也不是写法优劣评价。A 是句子级技法卡片，B 是段落级结构语料；两者都不能替代事实核验。
@@ -54,7 +56,7 @@ Hexie 适合处理论文开头的论证组织问题，例如：
 
 - 引言只有现实背景，没有自然引出研究问题。
 - 现实背景写成政策、年份、数据、事件堆叠。
-- 文献综述写成作者清单，缺少文献群落和关系。
+- 文献综述写成作者清单，缺少文献群落和关系；段中大量用“某某发现/某某指出/某某基于”推进。
 - 研究缺口不能从现实背景和已有文献自然推出。
 - 边际贡献写成空泛套话。
 - 引用方向、文献发现或作者归属不可靠。
@@ -98,7 +100,7 @@ Hexie 不适合套用到：
 它检查的不是“文字是否顺”，而是开篇论证是否可信、连贯、像中文经管论文。新版 `hexie-check` 拆成三轮顺序检查：
 
 - 第一轮：事实与忠实。检查引用方向、引用归属、事实核验、无编造无夸大、素材是否误用。
-- 第二轮：结构与论证。检查文献关系是否入文、逻辑链是否完整、缺口是否自然推出、段首判断、引用位置、收束句和文献充分性。
+- 第二轮：结构与论证。检查文献关系是否入文、逻辑链是否完整、缺口是否自然推出、作者名主语密度、段首判断、引用位置、收束句和文献充分性。
 - 第三轮：语言与节奏。检查长短差、收束力、破折号、转折后判断先行、连接词方式、AI 腔、事实堆叠、语病和删引用后逻辑。
 
 判定规则：
@@ -146,6 +148,8 @@ writer 定点修正，再重跑第三轮，直到通过
 `hexie-check` 单独调用时只输出当前轮检查报告；它不改文，也不生成终稿。writer 每轮修改后主动调用 `hexie-check`，check 只负责检查当前维度。
 
 凡涉及 2 篇及以上文献，第一阶段必须先产出文献关系表，并在第二轮结构与论证检查中确认关系已经通过句间逻辑进入正文。若文献不足却没有补文献，不能进入语言润色，也不能判定通过。
+
+第二轮还必须检查“文献主语让位”：正文主语应优先是问题、机制、条件、结果或文献群落判断。若连续两句以上，或同一段超过两句，以“某某发现/某某指出/某某基于”等作者名主语推进，且不是定义奠基、争议定位或关键反例，则视为作者清单式综述，不能通过结构与论证检查。
 
 若用户只提供待改文本而没有原文、PDF、MD、参考文献材料或可靠链接，Hexie 可以继续检查结构和语言，但不能给出“终稿通过”。这类输出必须标为“待核验稿”。
 
@@ -222,6 +226,8 @@ Hexie 的硬规则是：不得无中生有。
 
 文献事实必须回到用户提供的原文、PDF、MD、参考文献材料，或可靠检索结果。素材库不能替代事实核验。
 
+涉及引用准确性时，`hexie-check` 的第一轮应调用 `reference-verifier` 或当前环境可用的联网核验能力。若报告声称核验 N 条引用，逐条核验表必须列出 N 条，并逐条给出正文表述、判定状态、依据 URL/DOI/数据库链接和判定理由；不能用“其余均已核验”“全部通过”替代核验表。
+
 ## Installation
 
 复制三个目录到 Claude 或 Codex 的 skills 目录。
@@ -232,7 +238,8 @@ Claude:
 ~/.claude/skills/
 ├── hexie-writer/
 ├── hexie-check/
-└── hexie-shared-resource-library/
+├── hexie-shared-resource-library/
+└── reference-verifier/
 ```
 
 Codex:
@@ -241,10 +248,11 @@ Codex:
 ~/.agents/skills/
 ├── hexie-writer/
 ├── hexie-check/
-└── hexie-shared-resource-library/
+├── hexie-shared-resource-library/
+└── reference-verifier/
 ```
 
-目录名需要保持不变。`hexie-writer` 和 `hexie-check` 会按相对路径查找 `hexie-shared-resource-library`。
+目录名需要保持不变。`hexie-writer` 和 `hexie-check` 会按相对路径查找 `hexie-shared-resource-library`；`hexie-check` 的第一轮事实核验会按需调用 `reference-verifier`。
 
 ## Usage Examples
 
@@ -276,11 +284,13 @@ README.md
 hexie-writer/
 hexie-check/
 hexie-shared-resource-library/
+reference-verifier/
 ```
 
 `hexie-writer` 是日常写作入口。  
 `hexie-check` 可独立检查，也会被 writer 在循环中调用。  
 `hexie-shared-resource-library` 由 writer/check 按需读取。
+`reference-verifier` 由 `hexie-check` 在第一轮引用核验中按需调用。
 
 ## Maintainer Notes
 
@@ -290,4 +300,4 @@ hexie-shared-resource-library/
 - `.claude/skills` 和 `.agents/skills` 是安装/运行目录，不建议在里面执行 `git pull`、`git stash`、`git reset`、`git clean` 等 Git 操作。
 - 排查版本时，优先读取实际文件内容：`hexie-writer/SKILL.md`、`hexie-check/SKILL.md`、`hexie-shared-resource-library/index.md`、`hexie-shared-resource-library/how-to-use.md`。
 - 如果运行目录版本可疑，重新复制或同步三个发布目录，然后重启 Claude/Codex 会话。
-- GitHub 发布包只需要包含 `hexie-writer/`、`hexie-check/`、`hexie-shared-resource-library/`、`README.md` 和必要的 `.gitignore`。
+- GitHub 发布包只需要包含 `hexie-writer/`、`hexie-check/`、`hexie-shared-resource-library/`、`reference-verifier/`、`README.md` 和必要的 `.gitignore`。
