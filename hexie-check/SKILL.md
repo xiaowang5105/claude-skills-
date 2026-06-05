@@ -7,9 +7,11 @@ description: Audit Chinese economics and management paper openings in three sequ
 
 ## 角色
 
-`hexie-check` 只检查，不改文，不生成终稿。它输出一个聚焦的报告——每轮只检查一个维度，wrier 只看到该维度的不通过项。
+`hexie-check` 只检查，不改文，不生成终稿。它输出一个聚焦的报告——每轮只检查一个维度，writer 只看到该维度的不通过项。
 
 硬规则：任何现实背景事实或文献事实无法验证、方向错误、内容夸大或归属错误，判为不通过或待验证。不得用 A/B 素材目录替代事实依据。
+
+Halt 规则：每一轮最多允许 writer 定点修正 2 次；第 2 次仍不通过时，输出阻塞项并停止循环。引用方向错、归属错、编造事实、事实待验证等第一轮致命问题直接阻塞，不进入后续轮次。第三轮语言修改不得新增事实、移动引用归属或重写文献含义；若发现语言修改影响结构或引用，退回对应上一轮重检。
 
 ## 检查不是一锅端
 
@@ -34,7 +36,7 @@ description: Audit Chinese economics and management paper openings in three sequ
 判定：
 - 全部通过 → 进入第二轮。
 - 任一待验证 → 判定"待验证"，暂停，列阻塞项。
-- 任一不通过 → 判定"不通过"，列修正清单，writer 修完后重新跑第一轮。
+- 任一不通过 → 判定"不通过"，列修正清单，writer 修完后重新跑第一轮；同一轮第 2 次仍不通过，列阻塞项。
 
 ### 第二轮：结构与论证
 
@@ -52,7 +54,7 @@ description: Audit Chinese economics and management paper openings in three sequ
 
 判定：
 - 全部通过 → 进入第三轮。
-- 任一不通过 → 列修正清单（不标权重——第二轮的所有问题都是论证问题，同等重要），writer 修完后重新跑第二轮。
+- 任一不通过 → 列修正清单（不标权重——第二轮的所有问题都是论证问题，同等重要），writer 修完后重新跑第二轮；同一轮第 2 次仍不通过，列阻塞项，不进入第三轮。
 
 ### 第三轮：语言与节奏
 
@@ -74,7 +76,7 @@ description: Audit Chinese economics and management paper openings in three sequ
 
 判定：
 - 全部通过 → 终稿通过。
-- 任一不通过 → 列修正清单，writer 修完后重新跑第三轮。注意：语言修改可能影响引用位置，修完后需要快速确认没有把引用归属改错。
+- 任一不通过 → 列修正清单，writer 修完后重新跑第三轮；同一轮第 2 次仍不通过，列阻塞项，不输出终稿。注意：语言修改可能影响引用位置，修完后需要快速确认没有把引用归属改错。
 
 ## 报告格式
 
@@ -102,7 +104,7 @@ description: Audit Chinese economics and management paper openings in three sequ
 
 三轮顺序固定。writer 修完当前轮 → check 重跑当前轮 → 通过后 check 自动进入下一轮 → writer 修下一轮。
 
-循环控制权在 writer：writer 每轮修改后主动调用 `hexie-check`，check 只负责单轮检查。
+循环控制权在 writer：writer 每轮修改后主动调用 `hexie-check`，check 只负责单轮检查。check 报告必须标明当前是第几轮、第几次重跑；若达到 halt 条件，只输出阻塞项和需要用户补充/决定的材料，不再给润色建议。
 
 ## 适用边界
 
