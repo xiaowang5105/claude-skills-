@@ -26,6 +26,24 @@ hexie-shared-resource-library/
 
 本仓库不包含 `hxpdf`。
 
+当前发布版以 `hexie-shared-resource-library/index.md` 和 `how-to-use.md` 为资源入口。旧版的 `examples.md`、`workflow-rules.md`、`material-tier-index.md` 以及 `tier-a/tier-b/tier-c` 目录不再作为运行结构；如果本地仍看到这些名称，通常表示安装目录还没有同步到最新版。
+
+## Current Design
+
+新版 Hexie 的核心不是“找一篇模板照着写”，而是把开篇论证拆成三个层次：
+
+```text
+事实可核验 -> 段落论证能推进 -> 句子读起来像中文经管论文
+```
+
+对应到资源和检查流程：
+
+- 第一轮看事实：现实背景和文献事实必须能回到原文、PDF、MD、用户材料或可靠来源。
+- 第二轮看段落：用 B 档段落结构语料辅助判断论证链、文献关系、缺口和收束。
+- 第三轮看句子：用 A 档句子卡片辅助处理词感、节奏、收束力、关联词位置和 AI 腔。
+
+因此，A/B 不是论文质量评价，也不是写法优劣评价。A 是句子级技法卡片，B 是段落级结构语料；两者都不能替代事实核验。
+
 ## What Hexie Helps With
 
 Hexie 适合处理论文开头的论证组织问题，例如：
@@ -252,3 +270,13 @@ hexie-shared-resource-library/
 `hexie-writer` 是日常写作入口。  
 `hexie-check` 可独立检查，也会被 writer 在循环中调用。  
 `hexie-shared-resource-library` 由 writer/check 按需读取。
+
+## Maintainer Notes
+
+如果你要维护或发布新版 skill，建议遵守这几条规则：
+
+- 先改维护源，再同步到运行目录和 GitHub。
+- `.claude/skills` 和 `.agents/skills` 是安装/运行目录，不建议在里面执行 `git pull`、`git stash`、`git reset`、`git clean` 等 Git 操作。
+- 排查版本时，优先读取实际文件内容：`hexie-writer/SKILL.md`、`hexie-check/SKILL.md`、`hexie-shared-resource-library/index.md`、`hexie-shared-resource-library/how-to-use.md`。
+- 如果运行目录版本可疑，重新复制或同步三个发布目录，然后重启 Claude/Codex 会话。
+- GitHub 发布包只需要包含 `hexie-writer/`、`hexie-check/`、`hexie-shared-resource-library/`、`README.md` 和必要的 `.gitignore`。
